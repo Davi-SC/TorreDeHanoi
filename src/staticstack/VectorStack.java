@@ -16,12 +16,12 @@ public class VectorStack implements IStack {
 //    }
 
     int capacidade;
-    int[] inteiros = new int[capacidade];
+    int[] elementos ;  //= new int[capacidade]
     int size = 0;
 
     public VectorStack(int capacidade) {
         this.capacidade = capacidade;
-        inteiros = new int[capacidade];
+        elementos = new int[capacidade];
     }
 
     @Override
@@ -39,7 +39,7 @@ public class VectorStack implements IStack {
         if(isEmpty()){
             throw new EmptyStackException();
         }
-        return inteiros[size - 1];
+        return elementos[size - 1];
     }
 
     @Override
@@ -47,7 +47,7 @@ public class VectorStack implements IStack {
         if(size == capacidade){
             throw new FullStackException();
         }
-        inteiros[size] = element;
+        elementos[size] = element;
         size++;
     }
 
@@ -57,13 +57,13 @@ public class VectorStack implements IStack {
             throw new EmptyStackException();
         }
         int element = top();
-        inteiros[size - 1] = 0;
+        elementos[size - 1] = 0;
         size--;
         return element;
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(inteiros);
+        return Arrays.toString(elementos);
     }
 }
